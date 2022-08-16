@@ -1,3 +1,5 @@
+import { v4 as uuid } from "uuid";
+
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AppDispatch, AppThunk } from "../../app/store";
 import { Todo } from "./types";
@@ -26,7 +28,7 @@ export const addTodo =
   (text: string): AppThunk =>
   async (dispatch: AppDispatch) => {
     const newTodo: Todo = {
-      id: Math.random().toString(36).substr(2, 9), // https://gist.github.com/gordonbrander/2230317,
+      id: uuid(),
       completed: false,
       text: text,
     };
